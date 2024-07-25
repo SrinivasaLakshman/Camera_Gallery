@@ -86,3 +86,6 @@ video {
     color: aqua;
     font-size: 0.8rem;
 }
+.timer {
+    display: none;
+}

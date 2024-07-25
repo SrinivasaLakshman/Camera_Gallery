@@ -45,10 +45,12 @@ recordBtnCont.addEventListener("click", (e) => {
     if (recordFlag) { //start
         recorder.start();
         recordBtn.classList.add("scale-record");
+        startTimer();
     }
     else { //stop
         recorder.stop();
         recordBtn.classList.remove("scale-record");
+        stopTimer();
     }
 })
 
@@ -56,6 +58,7 @@ let timerID;
 let counter = 0; // Represents total seconds
 let timer = document.querySelector(".timer");
 function startTimer() {
+    timer.style.display = "block";
     function displayTimer() {
         let totalSeconds = counter;
 
@@ -79,5 +82,5 @@ function startTimer() {
 function stopTimer() {
     clearInterval(timerID);
     timer.innerText = "00:00:00";
+    timer.style.display = "none";
 }
-startTimer();
