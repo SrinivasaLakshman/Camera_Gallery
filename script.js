@@ -51,3 +51,29 @@ recordBtnCont.addEventListener("click", (e) => {
         recordBtn.classList.remove("scale-record");
     }
 })
+
+let timerID;
+let counter = 0; // Represents total seconds
+let timer = document.querySelector(".timer");
+function startTimer() {
+    function displayTimer() {
+        let totalSeconds = counter;
+
+        let hours = Number.parseInt(totalSeconds/3600);
+        totalSeconds = totalSeconds % 3600; //remaining value
+
+        let minutes = Number.parseInt(totalSeconds/60);
+        totalSeconds = totalSeconds % 60; //remaining value
+
+        let seconds = totalSeconds;
+
+        timer.innerText = `${hours}:${minutes}:${seconds}`; 
+        counter++;
+    }
+    timerID = setInterval(displayTimer, 1000);
+}
+function stopTimer() {
+    clearInterval(timerID);
+    timer.innerText = "00:00:00";
+}
+startTimer();
