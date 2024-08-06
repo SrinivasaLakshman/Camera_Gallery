@@ -1,5 +1,6 @@
 // Open a database
 // Create objectstore
+// Make transactions
 let db;
 let openRequest = indexedDB.open("myDataBase");
 openRequest.addEventListener("success", (e) => {
